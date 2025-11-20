@@ -43,12 +43,17 @@ namespace SimpleMOBA.Gameplay.Towers
 
         public void ApplyData(ScriptableObjects.Towers.TowerData data, bool startVulnerable)
         {
-            if (data == null)
+            ApplyData(Gameplay.Towers.TowerStats.FromData(data), startVulnerable);
+        }
+
+        public void ApplyData(Gameplay.Towers.TowerStats stats, bool startVulnerable)
+        {
+            if (stats == null)
             {
                 return;
             }
 
-            ai.ApplyData(data.MaxHealth, data.AttackRange, data.AttackDamage, data.AttackCooldown);
+            ai.ApplyData(stats.MaxHealth, stats.AttackRange, stats.AttackDamage, stats.AttackCooldown);
             SetVulnerable(startVulnerable);
         }
 

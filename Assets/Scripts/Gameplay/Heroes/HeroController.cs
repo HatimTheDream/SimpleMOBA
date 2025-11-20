@@ -44,17 +44,22 @@ namespace SimpleMOBA.Gameplay.Heroes
 
         public void ApplyData(ScriptableObjects.Heroes.HeroData data)
         {
-            if (data == null)
+            ApplyData(Gameplay.Heroes.HeroStats.FromData(data));
+        }
+
+        public void ApplyData(Gameplay.Heroes.HeroStats stats)
+        {
+            if (stats == null)
             {
                 return;
             }
 
-            moveSpeed = data.MoveSpeed;
-            autoAttack.ConfigureStats(data.AttackDamage, data.AttackRange, data.AttackCooldown);
-            health?.ConfigureMaxHealth(data.MaxHealth);
+            moveSpeed = stats.MoveSpeed;
+            autoAttack.ConfigureStats(stats.AttackDamage, stats.AttackRange, stats.AttackCooldown);
+            health?.ConfigureMaxHealth(stats.MaxHealth);
 
-            basicAbility = InstantiateAbility(data.BasicAbilityPrefab);
-            ultimateAbility = InstantiateAbility(data.UltimateAbilityPrefab);
+            basicAbility = InstantiateAbility(stats.BasicAbilityPrefab);
+            ultimateAbility = InstantiateAbility(stats.UltimateAbilityPrefab);
         }
 
         private void Update()
