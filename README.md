@@ -27,3 +27,13 @@ Initial Unity scaffold for a portrait-oriented, single-lane mobile MOBA prototyp
 - Scripts are stubbed to compile and include TODO markers for FX, AI polish, and UI hookups; towers respect vulnerability for base gates.
 - Game flow defaults to single-player vs. AI; networking is intentionally decoupled for later integration.
 - Portrait orientation should be enforced in Unity player settings when creating the project.
+
+## Quick-create example prefabs
+
+To make Play testing immediate, the project includes an Editor utility to generate simple placeholder prefabs:
+
+- In the Unity Editor menu choose `SimpleMOBA -> Create Example Prefabs`.
+- This creates three prefabs under `Assets/Prefabs/`: `MinionPrefab`, `HeroPrefab`, and `TowerPrefab`.
+- You can then assign those prefabs to the corresponding ScriptableObjects (MinionData/HeroData/TowerData) and open the demo scene.
+
+Also use `SimpleMOBA -> Create Demo Scene` to scaffold `Assets/Scenes/DemoScene.unity` with spawn points and a `MinionSpawner`.
